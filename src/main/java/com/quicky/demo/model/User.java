@@ -15,10 +15,6 @@ public class User {
     private String idCard;
     private String phone;
     private String password;
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	public User(int id, String username, String idCard, String phone, String password) {
 		super();
 		this.id = id;
@@ -26,6 +22,8 @@ public class User {
 		this.idCard = idCard;
 		this.phone = phone;
 		this.password = password;
+	}
+	public User() {
 	}
     
     
