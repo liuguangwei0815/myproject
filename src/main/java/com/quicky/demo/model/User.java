@@ -15,13 +15,4 @@ public class User {
     private String idCard;
     private String phone;
     private String password;
-	public User(int id, String username, String idCard, String phone, String password) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.idCard = idCard;
-		this.phone = phone;
-		this.password = password;
-	}
-    
 }
