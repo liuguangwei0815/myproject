@@ -15,20 +15,20 @@ import com.quicky.demo.model.User;
 @SpringBootTest
 @MapperScan("com.quicky.demo.mapper")
 public class UserMapperTest {
-    @Autowired
-    private UserMapper mapper;
-
-    @Test
-    public void testInset() {
-//        User user = new User(1, "Jaycekon","1234","1234","123");
-//        int i = mapper.insert(user);
-//        Assert.assertNotEquals(0, i);
-    }
-
-
-    @Test
-    public void testSelect(){
-        User user = mapper.selectByName("Jaycekon");
-        Assert.assertNotEquals(null,user);
-    }
+//    @Autowired
+//    private UserMapper mapper;
+//
+//    @Test
+//    public void testInset() {
+////        User user = new User(1, "Jaycekon","1234","1234","123");
+////        int i = mapper.insert(user);
+////        Assert.assertNotEquals(0, i);
+//    }
+//
+//
+//    @Test
+//    public void testSelect(){
+//        User user = mapper.selectByName("Jaycekon");
+//        Assert.assertNotEquals(null,user);
+//    }
 }
