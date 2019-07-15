@@ -17,7 +17,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Cacheable(value = "findAll333", key = "'test'")
     public List<User> findAll() {
         System.out.println("如果没打印这句话，说明走了缓存！");
         List<User> list = new ArrayList<User>();
@@ -25,6 +24,8 @@ public class UserServiceImpl implements UserService {
         u.setId(1);
         u.setUsername("1112888");
         list.add(u);
+        User user1  = selectByName("Jaycekon");
+        System.out.println("获取用户："+user1.getId());
         return list;
     }
 
