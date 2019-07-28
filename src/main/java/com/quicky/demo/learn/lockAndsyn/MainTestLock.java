@@ -1,14 +1,14 @@
 package com.quicky.demo.learn.lockAndsyn;
 
-public class MainTest {
+public class MainTestLock {
 	
 	
 	public static void main(String[] args) {
-		BufferSyn bs = new BufferSyn();
+		BufferLock bs = new BufferLock();
 		
-		Writer w = new Writer(bs);
+		WriterLock w = new WriterLock(bs);
 		
-		Reader rd = new Reader(bs);
+		ReaderLock rd = new ReaderLock(bs);
 		
 		w.start();
 		
