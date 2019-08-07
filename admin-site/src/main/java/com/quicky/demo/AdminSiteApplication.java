@@ -10,15 +10,15 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 @SpringBootApplication
 @EnableCaching
 @EnableCircuitBreaker
-public class DemoApplication extends SpringBootServletInitializer{
+public class AdminSiteApplication extends SpringBootServletInitializer{
 
 	@Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(DemoApplication.class);
+        return application.sources(AdminSiteApplication.class);
     }
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(AdminSiteApplication.class, args);
 	}
 
 }
