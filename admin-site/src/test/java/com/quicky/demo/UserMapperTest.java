@@ -29,6 +29,6 @@ public class UserMapperTest {
     @Test
     public void testSelect(){
         User user = mapper.selectByName("Jaycekon");
-        Assert.assertNotEquals(null,user);
+        System.out.println("____1111_"+user.getId());
     }
 }

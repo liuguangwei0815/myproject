@@ -80,5 +80,10 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<modules>
+		<module>admin-site</module>
+		<module>commom-resource</module>
+	</modules>
 
 </project>
