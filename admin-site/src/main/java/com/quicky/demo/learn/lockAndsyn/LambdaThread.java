@@ -1,4 +1,4 @@
-package com.quicky.demo.lean.lambda;
+package com.quicky.demo.learn.lockAndsyn;
 
 import java.util.ArrayList;
 import java.util.Arrays;
