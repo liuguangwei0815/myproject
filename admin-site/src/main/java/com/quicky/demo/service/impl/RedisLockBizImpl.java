@@ -1,5 +1,18 @@
 package com.quicky.demo.service.impl;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Stack;
+import java.util.Vector;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +34,26 @@ public class RedisLockBizImpl implements RedisLockBiz {
 	
     @Autowired
     private UserMapper userMapper;
+    
+    public static void main(String[] args) {
+    	System.out.println(2>>1);
+    	
+//    	List<String> list = new LinkedList<>();
+//		list.add("a");
+//		list.add("b");
+//		
+//    	System.out.println(list.get(0));
+    
+    	Collection<String> que = new ConcurrentLinkedQueue<>();
+    	que.add(null);
+    	
+    	              
+    	      
+	}
 
 	@Override
 	public String seckilling(String targetId) {
+		
 		System.out.println("进入执行线程:"+targetId);
 		 //加锁
         long time = System.currentTimeMillis() + TIMEOUT;

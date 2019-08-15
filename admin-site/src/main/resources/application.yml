@@ -1,0 +1,12 @@
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 30 #心跳刷新30s
+    lease-expiration-duration-in-seconds: 30 #服务时效时间 等待时间
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.35.238:7000/eureka/
+    fetch-registry: true #消费端想注册中心获取服务列表请求
+    registry-fetch-interval-seconds: 30 #缓存服务列表时间
+spring:
+  application:
+    name: admin-site

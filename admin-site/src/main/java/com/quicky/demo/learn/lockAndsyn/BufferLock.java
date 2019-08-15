@@ -9,6 +9,9 @@ public class BufferLock {
 	public void write() {
 		lock.lock();
 		try {
+			synchronized (lock) {
+				
+			}
 
 			long start = System.currentTimeMillis();
 

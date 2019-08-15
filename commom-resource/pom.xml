@@ -8,6 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>commom-resource</artifactId>
+	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>tk.mybatis</groupId>

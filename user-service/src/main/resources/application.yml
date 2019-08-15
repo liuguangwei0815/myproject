@@ -1,0 +1,12 @@
+server:
+  port: 7001
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 30 #心跳刷新30s
+    lease-expiration-duration-in-seconds: 30 #服务时效时间 等待时间
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.35.238:7000/eureka/
+spring:
+  application:
+    name: user-service
