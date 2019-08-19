@@ -20,6 +20,10 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value="/users")     // 通过这里配置使下面的映射都在/users下，可去除
 public class UserController {
+	
+	
+	
+	
 
 
     @ApiOperation(value="获取用户列表", notes="")

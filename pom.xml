@@ -115,6 +115,12 @@
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
+			<dependency>
+				<groupId>com.quicky</groupId>
+				<artifactId>accout-api</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -134,6 +140,8 @@
 		<module>user-api</module>
 		<module>user-service</module>
 		<module>my-orm</module>
+		<module>accout-api</module>
+		<module>accout-service</module>
 	</modules>
 
 </project>

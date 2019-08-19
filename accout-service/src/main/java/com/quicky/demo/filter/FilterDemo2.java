@@ -1,4 +1,4 @@
-package com.quicky.demo.learn.spring;
+package com.quicky.demo.filter;
 
 import java.io.IOException;
 
@@ -9,14 +9,14 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-public class FilterDemo1 implements Filter{
+public class FilterDemo2 implements Filter{
 
 	
 	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		String para = filterConfig.getInitParameter("exclusions");
-		System.out.println(this.getClass().getName()+"init"+"paraL:"+para);
+		System.out.println("2222");
+		System.out.println(this.getClass().getName()+"init");
 	}
 
 	@Override
@@ -27,8 +27,9 @@ public class FilterDemo1 implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println(this.getClass().getName()+"doFilter");
-		System.out.println(request.getAttribute("exclusions"));
+		System.out.println(this.getClass().getName()+"FilterDemo2 doFilter");
+		System.out.println(request.getAttribute("paramName"));
+		chain.doFilter(request, response);
 	}
 
 }

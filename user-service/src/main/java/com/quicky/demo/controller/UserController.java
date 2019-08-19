@@ -24,7 +24,8 @@ public class UserController {
 	@ResponseBody
 	public String getUser() {
 		User user = userService.getUserbyuserName("Jaycekon");
-		return JSONArray.toJSONString(user);
+		JSONArray.toJSONString(user);
+		return "User service";
 	}
 	
 	@RequestMapping("/getUserInfo")

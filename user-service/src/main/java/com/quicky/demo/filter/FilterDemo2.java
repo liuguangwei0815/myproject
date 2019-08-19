@@ -29,6 +29,7 @@ public class FilterDemo2 implements Filter{
 			throws IOException, ServletException {
 		System.out.println(this.getClass().getName()+"FilterDemo2 doFilter");
 		System.out.println(request.getAttribute("paramName"));
+		chain.doFilter(request, response);
 	}
 
 }
