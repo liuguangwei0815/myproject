@@ -23,8 +23,8 @@ public class DruidConfiguration {
 	 * @return
 	 */
 	@Bean
-	public FilterRegistrationBean setDruidFilter() {
-		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+	public FilterRegistrationBean<WebStatFilter> setDruidFilter() {
+		FilterRegistrationBean<WebStatFilter> filterRegistrationBean = new FilterRegistrationBean<>();
 		filterRegistrationBean.addUrlPatterns("/*");
 		filterRegistrationBean.setFilter(new WebStatFilter());
 		Map<String, String> initParameters = new HashMap<>();
@@ -39,8 +39,8 @@ public class DruidConfiguration {
 	 * @return
 	 */
 	@Bean
-	public ServletRegistrationBean setDruidServlet() {
-		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
+	public ServletRegistrationBean<StatViewServlet> setDruidServlet() {
+		ServletRegistrationBean<StatViewServlet> servletRegistrationBean = new ServletRegistrationBean<>();
 		servletRegistrationBean.setServlet(new StatViewServlet());
 		servletRegistrationBean.addUrlMappings("/druid/*");
 

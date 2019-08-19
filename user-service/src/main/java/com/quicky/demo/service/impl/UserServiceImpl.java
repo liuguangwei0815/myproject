@@ -1,5 +1,6 @@
 package com.quicky.demo.service.impl;
 
+import org.bouncycastle.crypto.RuntimeCryptoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,7 +40,7 @@ public class UserServiceImpl implements UserService {
 		user.setPhone("123123");
 		user.setUsername("mick");
 		userMapper.insert(user);
-		return true;
+		throw new RuntimeException("");
 	}
 	
 	
