@@ -144,12 +144,23 @@
 		<dependency>
 			<groupId>com.quicky</groupId>
 			<artifactId>commom-resource</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.quicky</groupId>
+			<artifactId>my-orm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.quicky</groupId>
+			<artifactId>my-orm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.quicky</groupId>
+			<artifactId>user-api</artifactId>
 		</dependency>
 
 
 	</dependencies>
-	
+
 
 	<build>
 		<plugins>
