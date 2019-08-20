@@ -4,4 +4,6 @@ public interface RibbonService {
 
 	public String getUserInfo();
 	
+	public String getUserInfoPost();
+	
 }

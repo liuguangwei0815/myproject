@@ -20,5 +20,12 @@ public class RibbonController {
 	public String customer() {
 		return ribbonService.getUserInfo();
 	}
+	
+	
+	@RequestMapping("/postget")
+	@ResponseBody
+	public String post() {
+		return ribbonService.getUserInfoPost();
+	}
 
 }
