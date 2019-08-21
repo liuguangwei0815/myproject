@@ -11,7 +11,7 @@ eureka:
       defaultZone: http://192.168.35.238:7000/eureka/    healthcheck:      enabled: true #配置开启健康检查，并按需配置续约更新时间和到期时间  
 spring:
   application:
-    name: user-service
+    name: accout-service
   datasource:
     base:
       type: com.alibaba.druid.pool.DruidDataSource

@@ -1,0 +1,27 @@
+server:
+  port: 7004
+#服务的名称
+spring:
+  application:
+    name: zuul-gateway
+
+#指定注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.35.238:7000/eureka/
+
+#自定义路由映射
+zuul:
+  routes:
+    admin-site: /adminapp/**
+    accout-service: /accoutapp/**
+    user-service: /userapp/**
+  #统一入口为上面的配置，其他入口忽略 带有service的直接不给通过
+  ignored-patterns: /*-service/**
+  #忽略整个服务，对外提供接口 不允许 ip：prot 进行访问
+  ignored-services: '*'
+  sensitive-headers: Cookie,Set-Cookie #敏感Cookie,Set-Cookie 不会传播的其它的微服务中去 
+  ignored-headers: Authorization #与上面敏感的Header差不多，事实上sensitive-headers会被添加到ignored-headers中。
+  
+  

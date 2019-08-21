@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
- * 保存流
+ * 保存流和解决在过滤器或者拦截器使用关闭流问题
  *
  * @author yefuliang 2017年10月25日
  */

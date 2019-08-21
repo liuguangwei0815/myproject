@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.quicky.demo.interceptor.HttpLoggingInterceptor;
+import com.quicky.demo.aop.OperationLogDetail;
+import com.quicky.demo.aop.OperationType;
+import com.quicky.demo.aop.OperationUnit;
 import com.quicky.demo.restclient.RestClient;
 import com.quicky.demo.service.RibbonService;
 
@@ -37,13 +39,14 @@ public class RibbonServiceImpl implements RibbonService {
 		return restTemplate.getForObject("http://user-service/getUser", String.class);
 	}
 
-	public String getUserInfoPostErro() {
+	public String getUserInfoPostErro(String userName) {
 		return "Error occurre熔断错误!";
 	}
 
+	@OperationLogDetail(detail = "通过用户名手机号[{{userName}}]获取信息",level = 3,operationUnit = OperationUnit.USER,operationType = OperationType.SELECT)
 	@Override
 	@HystrixCommand(fallbackMethod = "getUserInfoPostErro")
-	public String getUserInfoPost() {
+	public String getUserInfoPost(String userName) {
 		try {
 	
 //		String email = "test@hhui.top";

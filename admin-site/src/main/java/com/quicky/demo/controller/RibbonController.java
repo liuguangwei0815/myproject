@@ -25,7 +25,7 @@ public class RibbonController {
 	@RequestMapping("/postget")
 	@ResponseBody
 	public String post() {
-		return ribbonService.getUserInfoPost();
+		return ribbonService.getUserInfoPost("AsPect my");
 	}
 
 }

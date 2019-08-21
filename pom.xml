@@ -157,6 +157,7 @@
 		<module>my-orm</module>
 		<module>accout-api</module>
 		<module>accout-service</module>
+		<module>my-zuul</module>
 	</modules>
 
 </project>
