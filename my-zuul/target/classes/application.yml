@@ -10,6 +10,11 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://192.168.35.238:7000/eureka/
+  instance:    
+   prefer-ip-address: true #主要是为了解决注册到服务器上显示为主机名的问题，一般建议显示为ip,方便区分。
+   instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+
 
 #自定义路由映射
 zuul:

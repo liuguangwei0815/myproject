@@ -8,7 +8,8 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:
     serviceUrl:
-      defaultZone: http://192.168.35.238:7000/eureka/ #这里可以填写所有的eureka服务器地址并以','分离，当前面不能注册时候,自动选择后面的进行注册，排除单点故障问题    healthcheck:      enabled: true #配置开启健康检查，并按需配置续约更新时间和到期时间  
+      defaultZone: http://eureka1:7000/eureka,http://eureka2:7004/eureka,http://eureka3:7005/eureka  #设置与 Eureka Server 交互的地址查询服务和注册服务都需要依赖这个地址(服务暴露的地址)
+    healthcheck:      enabled: true #配置开启健康检查，并按需配置续约更新时间和到期时间  
     register-with-eureka: true #默认为true 可以不写
     
 spring:

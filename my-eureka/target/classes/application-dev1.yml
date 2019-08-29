@@ -1,0 +1,10 @@
+server:
+  port: ${dev.dev1Port}
+eureka:
+  instance:
+    hostname: eureka1   #eureka 服务端实例名称
+  client:
+    #register-with-eureka: true   #false 表示不向注册中心中注册自己
+    #fetch-registry: true   #false 表示自己端就是注册中心,我的职责就是维护服务实例，并不需要去检索服务
+    service-url:
+      defaultZone: http://eureka2:${dev.dev2Port}/eureka,http://eureka3:${dev.dev3Port}/eureka  #设置与 Eureka Server 交互的地址查询服务和注册服务都需要依赖这个地址(服务暴露的地址)
