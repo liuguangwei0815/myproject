@@ -1,2 +1,2 @@
-spring:  profiles:    active: dev3  application:    name: eureka-server-hight
+spring:  profiles:    active: dev1  application:    name: eureka-server-hight
 dev:  dev1Port: 7000  dev2Port: 7004  dev3Port: 7005

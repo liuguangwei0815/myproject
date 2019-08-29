@@ -1,11 +1,12 @@
 package com.quicky.demo.controller;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,8 @@ import com.quicky.licm.model.UserInfo;
 
 @Controller
 @Scope("prototype")
+//这里面的属性有可能会更新的，git中的配置中心变化的话就要刷新，没有这个注解内，配置就不能及时更新
+@RefreshScope
 public class UserController {
 
 	@Autowired
@@ -58,6 +61,20 @@ public class UserController {
 	   map.put("result", "add " + map.get("email") + " # " + map.get("nick") + " success!");
 	   return JSON.toJSONString(map);
 	}
+	
+	@Value("${name1}")
+    private String name;
+    @Value("${password1}")
+    private String password;
+    @Value("${age}")
+    private String age;
+    
+	@RequestMapping("/getConfigVal")
+	@ResponseBody
+	public String getConfigVal() {
+		return JSON.toJSONString(name+":"+password+":"+age);
+	}
+	
 	
 	
 	

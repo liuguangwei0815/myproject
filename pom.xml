@@ -158,6 +158,7 @@
 		<module>accout-api</module>
 		<module>accout-service</module>
 		<module>my-zuul</module>
+		<module>my-config</module>
 	</modules>
 
 </project>
