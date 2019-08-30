@@ -68,7 +68,10 @@ public class UserController {
     private String password;
     @Value("${age}")
     private String age;
-    
+    /**
+     * 通过配置中心获取参数
+     * @return
+     */
 	@RequestMapping("/getConfigVal")
 	@ResponseBody
 	public String getConfigVal() {
