@@ -1,5 +1,5 @@
 server:
-  port: 7001
+  port: 7003
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 30 #心跳刷新30s
@@ -9,28 +9,24 @@ eureka:
   client:
     register-with-eureka: true #默认为true 可以不写
     fetch-registry: true
-    #healthcheck:
-      #enabled: true #配置开启健康检查，并按需配置续约更新时间和到期时间  
     serviceUrl:
-      defaultZone: http://eureka1:7000/eureka,http://eureka2:7004/eureka,http://eureka3:7005/eureka  #设置与 Eureka Server 交互的地址查询服务和注册服务都需要依赖这个地址(服务暴露的地址)
+      defaultZone: http://eureka1:7000/eureka,http://eureka2:7004/eureka,http://eureka3:7005/eureka  #设置与 Eureka Server 交互的地址查询服务和注册服务都需要依赖这个地址(服务暴露的地址)    healthcheck:      enabled: true #配置开启健康检查，并按需配置续约更新时间和到期时间  
 management:
   endpoints:
     web:
       exposure:
-        include: refresh
+        include: refresh      
 spring:
   application:
-    name: user-service
-  cloud:    config:      profile: dev #git库cloud-config-dev      discovery:        enabled: true #允许别发现
+    name: accout-service
+  cloud:    config:      profile: dev #git库cloud-config-dev
+      discovery:        enabled: true #允许别发现
         service-id: my-config
-    bus:
-      refresh:
-        enabled: true
+    bus:      refresh:        enabled: true
   kafka:
       bootstrap-servers: kafka.com:7100,kafka.com:7101,kafka.com:7102
       consumer:
         group-id: SpringCloud-bus
-          
   datasource:
     base:
       type: com.alibaba.druid.pool.DruidDataSource
