@@ -13,3 +13,5 @@
 192.168.2.212 activemq.com
 #mysql
 192.168.2.212 mysql.com
+#kafka
+192.168.2.212 kafka.com
