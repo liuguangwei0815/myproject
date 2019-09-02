@@ -11,11 +11,11 @@ eureka:
     fetch-registry: true
     serviceUrl:
       defaultZone: http://eureka1:7000/eureka,http://eureka2:7004/eureka,http://eureka3:7005/eureka  #设置与 Eureka Server 交互的地址查询服务和注册服务都需要依赖这个地址(服务暴露的地址)    healthcheck:      enabled: true #配置开启健康检查，并按需配置续约更新时间和到期时间  
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh      
+#management:
+  #endpoints:
+    #web:
+      #exposure:
+        #include: '*'      
 spring:
   application:
     name: accout-service
@@ -25,8 +25,8 @@ spring:
     bus:      refresh:        enabled: true
   kafka:
       bootstrap-servers: kafka.com:7100,kafka.com:7101,kafka.com:7102
-      consumer:
-        group-id: SpringCloud-bus
+      #consumer:
+        #group-id: SpringCloud-bus
   datasource:
     base:
       type: com.alibaba.druid.pool.DruidDataSource
