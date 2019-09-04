@@ -116,6 +116,13 @@
 				<version>1.3.4</version>
 			</dependency>
 
+			<!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 -->
+			<dependency>
+				<groupId>org.springframework.security.oauth</groupId>
+				<artifactId>spring-security-oauth2</artifactId>
+				<version>2.3.6.RELEASE</version>
+			</dependency>
+
 			<!-- 自有项目 -->
 			<dependency>
 				<groupId>com.quicky</groupId>
@@ -165,6 +172,7 @@
 		<module>my-zuul</module>
 		<module>my-config</module>
 		<module>my-jms</module>
+		<module>my-auth</module>
 	</modules>
 
 </project>
