@@ -9,7 +9,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.35.238:7000/eureka/
+            defaultZone: http://eureka1:7000/eureka,http://eureka2:7004/eureka,http://eureka3:7005/eureka  #设置与 Eureka Server 交互的地址查询服务和注册服务都需要依赖这个地址(服务暴露的地址)
   instance:    
    prefer-ip-address: true #主要是为了解决注册到服务器上显示为主机名的问题，一般建议显示为ip,方便区分。
    instance-id: ${spring.cloud.client.ip-address}:${server.port}
@@ -22,11 +22,23 @@ zuul:
     admin-site: /adminapp/**
     accout-service: /accoutapp/**
     user-service: /userapp/**
+    sso-server: /sso-server/**
   #统一入口为上面的配置，其他入口忽略 带有service的直接不给通过
-  ignored-patterns: /*-service/**
+ # ignored-patterns: /*-service/**
   #忽略整个服务，对外提供接口 不允许 ip：prot 进行访问
-  ignored-services: '*'
-  sensitive-headers: Cookie,Set-Cookie #敏感Cookie,Set-Cookie 不会传播的其它的微服务中去 
-  ignored-headers: Authorization #与上面敏感的Header差不多，事实上sensitive-headers会被添加到ignored-headers中。
+  #ignored-services: '*'
+  sensitive-headers: #Cookie,Set-Cookie #敏感Cookie,Set-Cookie 不会传播的其它的微服务中去 
+  #ignored-headers: Authorization #与上面敏感的Header差不多，事实上sensitive-headers会被添加到ignored-headers中。
   
-  
+  #这是因为zuul采用了懒加载机制，第一次访问的时候才会加载某些类，
+  #而不是启动时就加载了，由于默认的时间原本就比较短，加载这些类又需要一些时间，
+  #这就造成超时了如何解决这个问题呢？查看zuul的依赖，发现zuul已经依赖的Hystrix，
+  #所以我们可以采用处理Hystrix超时的方法来处理zuul超时的问题
+  host:
+    connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
+    socket-timeout-millis: 60000   #socket超时
+    
+sso-server:
+   ribbon:
+    ConnectTimeout: 50000
+    ReadTimeout: 50000

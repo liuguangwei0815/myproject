@@ -15,6 +15,7 @@ import org.springframework.security.oauth2.provider.NoSuchClientException;
 import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 
 /**
+ * 
  * 自定义客户端认证
  * @author wunaozai
  * @date 2018-06-20
@@ -42,7 +43,7 @@ public class BaseClientDetailService implements ClientDetailsService {
             client.setAccessTokenValiditySeconds((int)TimeUnit.DAYS.toSeconds(1)); //1天
             client.setRefreshTokenValiditySeconds((int)TimeUnit.DAYS.toSeconds(1)); //1天
             Set<String> uris = new HashSet<>();
-            uris.add("http://localhost:7008/test");
+            uris.add("http://localhost:7008/login");
             client.setRegisteredRedirectUri(uris);
         }
         if(client == null) {

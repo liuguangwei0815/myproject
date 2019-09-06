@@ -2,8 +2,8 @@ server:
   port: 7006
 spring:  application:    name: my-config
   cloud:    config:      server:        git:          uri: https://github.com/liuwei0815/myconfig.git
-          username: 你的账户
-          password: 你的密码
+          username: 736873792@qq.com
+          password: Aini200878  
           search-paths: /**  # 指定搜索根路径下的所有目录，若有多个路径使用逗号隔开     
     bus:
       enabled: true

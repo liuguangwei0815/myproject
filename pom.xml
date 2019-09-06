@@ -123,6 +123,14 @@
 				<version>2.3.6.RELEASE</version>
 			</dependency>
 
+			<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt -->
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-jwt</artifactId>
+				<version>1.0.10.RELEASE</version>
+			</dependency>
+
+
 			<!-- 自有项目 -->
 			<dependency>
 				<groupId>com.quicky</groupId>
@@ -173,6 +181,7 @@
 		<module>my-config</module>
 		<module>my-jms</module>
 		<module>my-auth</module>
+		<module>sso-server</module>
 	</modules>
 
 </project>

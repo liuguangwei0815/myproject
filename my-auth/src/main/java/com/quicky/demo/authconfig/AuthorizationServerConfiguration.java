@@ -2,6 +2,8 @@ package com.quicky.demo.authconfig;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.servlet.Filter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -52,6 +54,8 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 		 * .accessTokenValiditySeconds(1200) .refreshTokenValiditySeconds(50000);
 		 */
 	}
+	
+	
 
 	@Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
@@ -81,5 +85,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 		oauthServer.allowFormAuthenticationForClients().tokenKeyAccess("isAuthenticated()")
 				.checkTokenAccess("permitAll()");
 	}
+
+
 
 }
