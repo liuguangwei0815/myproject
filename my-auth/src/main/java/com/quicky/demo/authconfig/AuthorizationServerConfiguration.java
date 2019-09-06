@@ -34,6 +34,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 	@Autowired
 	RedisConnectionFactory redisConnectionFactory;
 
+	//配置认证账户
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		// String finalSecret = "{bcrypt}"+new BCryptPasswordEncoder().encode("123456");
@@ -56,7 +57,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 	}
 	
 	
-
+    //配置token
 	@Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
@@ -76,6 +77,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         endpoints.tokenServices(tokenService);
     }
 
+	//配置表单认证，cas等认证安全链
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
 		// 允许表单认证
