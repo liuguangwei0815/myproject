@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @FeignClient(name = "sso-server", path = "/")
 public interface SsoFeign {
- /**
-  * 判断key是否存在
-  */
- @RequestMapping("redis/hasKey/{key}")
- public Boolean hasKey(@PathVariable("key") String key);
- 
+	/**
+	 * 判断key是否存在
+	 */
+	@RequestMapping("redis/hasKey/{key}")
+	public Boolean hasKey(@PathVariable("key") String key);
+
 }

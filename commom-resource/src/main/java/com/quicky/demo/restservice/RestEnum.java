@@ -6,7 +6,6 @@ import org.springframework.web.client.RestTemplate;
  * restTemplate单例
  * 
  * @author Administrator
- * @deprecated
  */
 public enum RestEnum {
 

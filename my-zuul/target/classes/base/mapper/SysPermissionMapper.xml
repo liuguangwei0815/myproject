@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quicky.demo.entity.SysPermissionMapper">
+	<resultMap id="BaseResultMap" type="com.quicky.demo.entity.SysPermission">
+		<result column="id" property="id" jdbcType="BIGINT" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="INT" />
+		<result column="url" property="url" jdbcType="VARCHAR" />
+		<result column="sort" property="sort" jdbcType="INT" />
+		<result column="pid" property="pid" jdbcType="BIGINT" />
+	</resultMap>
+	
+	<select id="getByid"  resultMap="BaseResultMap">
+		select * from sys_perission where id = #{id}
+	</select>
+	
+	
+</mapper>
