@@ -10,7 +10,6 @@ import lombok.ToString;
  * @author Administrator
  *
  */
-@ToString
 public class SysPermission implements Serializable {
 
 	/**

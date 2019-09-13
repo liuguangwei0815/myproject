@@ -38,20 +38,30 @@ public class SysUserServiceImpl implements SysUserService {
 	@Override
 	public SysUser getByUserNamed(String username) {
 		log.info("从数据库中查询用户");
-		SysUser user = sysUserMapper.getByUserNamed(username);
+		SysUser	user = new SysUser();
+		user.setUsername(username);
+		user = sysUserMapper.getOne(user);
 		if (null == user)
 			return user;
 		// 获取角色列表
-		List<SysUserRole> userRoleList = sysUserRoleMapper.getRoleList(user.getId());
+		SysUserRole surparam = new SysUserRole();
+		surparam.setSysuserid(user.getId());
+		List<SysUserRole> userRoleList = sysUserRoleMapper.getList(surparam);
 		List<SysRole> roleList = new ArrayList<SysRole>();
 		for (SysUserRole sysUserRole : userRoleList) {
-			roleList.add(sysRoleMapper.getByid(sysUserRole.getSysroleid()));
+			SysRole sysRolePar= new SysRole();
+			sysRolePar.setId(sysUserRole.getSysroleid());
+			roleList.add(sysRoleMapper.getOne(sysRolePar));
 		}
 		for (SysRole sysRole : roleList) {
 			List<SysPermission> perList = new ArrayList<SysPermission>();
-			List<SysRolePermission> rolePerList = sysRolePermissionMapper.getPermissionList(sysRole.getId());
+			SysRolePermission srpPar = new SysRolePermission();
+			srpPar.setSysroleid(sysRole.getId());
+			List<SysRolePermission> rolePerList = sysRolePermissionMapper.getList(srpPar);
 			for (SysRolePermission per : rolePerList) {
-				perList.add(sysPermissionMapper.getByid(per.getSyspermissionid()));
+				SysPermission sppar = new SysPermission();
+				sppar.setId(per.getSyspermissionid());
+				perList.add(sysPermissionMapper.getOne(sppar));
 			}
 			sysRole.setPermisionlist(perList);
 		}

@@ -1,19 +1,100 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.quicky.demo.entity.SysPermissionMapper">
-	<resultMap id="BaseResultMap" type="com.quicky.demo.entity.SysPermission">
-		<result column="id" property="id" jdbcType="BIGINT" />
-		<result column="code" property="code" jdbcType="VARCHAR" />
-		<result column="name" property="name" jdbcType="VARCHAR" />
-		<result column="type" property="type" jdbcType="INT" />
-		<result column="url" property="url" jdbcType="VARCHAR" />
-		<result column="sort" property="sort" jdbcType="INT" />
-		<result column="pid" property="pid" jdbcType="BIGINT" />
-	</resultMap>
-	
-	<select id="getByid"  resultMap="BaseResultMap">
-		select * from sys_perission where id = #{id}
-	</select>
-	
-	
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quicky.demo.entity.SysPermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.quicky.demo.entity.SysPermission" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="TINYINT" />
+    <result column="pid" property="pid" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id,code,name,type,url,sort,pid
+
+  </sql>
+  <select id="getOne" resultMap="BaseResultMap" parameterType="com.quicky.demo.entity.SysPermission" >
+    select <include refid="Base_Column_List" /> from sys_permission <include refid="getList_where" /> limit 1
+  </select>
+  
+  <sql id="getList_where">
+      <where>
+        <if test="id !=null">
+         and id=#{id,jdbcType=BIGINT}
+        </if>        
+        <if test="code !=null and  code != ''">
+         and code=#{code,jdbcType=VARCHAR}
+        </if>
+        <if test="name !=null and  name != ''">
+         and name=#{name,jdbcType=VARCHAR}
+        </if>
+        <if test="type !=null">
+         and type=#{type,jdbcType=TINYINT}
+        </if>        
+        <if test="url !=null and  url != ''">
+         and url=#{url,jdbcType=VARCHAR}
+        </if>
+        <if test="sort !=null">
+         and sort=#{sort,jdbcType=TINYINT}
+        </if>        
+        <if test="pid !=null">
+         and pid=#{pid,jdbcType=BIGINT}
+        </if>        
+    </where>
+  </sql>
+  
+  <select id="getList" parameterType="com.quicky.demo.entity.SysPermission" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from sys_permission <include refid="getList_where" />  order by id desc
+  </select>
+  <select id="getList_Count" parameterType="com.quicky.demo.entity.SysPermission" resultType="java.lang.Integer">
+    select count(ID) from sys_permission <include refid="getList_where" />
+  </select>  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete FROM sys_permission where id=#{id,jdbcType=BIGINT}
+  </delete>
+  
+  
+  <!-- 批量插入 -->
+	<insert id="insertBatch" parameterType="ArrayList">
+		insert into sys_permission
+	    <trim prefix="(" suffix=")" suffixOverrides="," >
+		    	id,
+		    	code,
+		    	name,
+		    	type,
+		    	url,
+		    	sort,
+		    	pid,
+	    </trim>		
+	    values
+		<foreach collection="list" item="item" index="index" separator=",">			
+		    <trim prefix="(" suffix=")" suffixOverrides="," >
+			    	#{item.id,jdbcType=BIGINT},
+			    	#{item.code,jdbcType=VARCHAR},
+			    	#{item.name,jdbcType=VARCHAR},
+			    	#{item.type,jdbcType=TINYINT},
+			    	#{item.url,jdbcType=VARCHAR},
+			    	#{item.sort,jdbcType=TINYINT},
+			    	#{item.pid,jdbcType=BIGINT},
+		    </trim>	
+	    </foreach>	
+	</insert>  
+  <!-- 批量更新 -->
+  <update id="batchUpdateByPrimaryKey" parameterType="ArrayList" >
+    <foreach collection="list" item="item" index="index" separator=";">
+	    update sys_permission 
+	    <set>
+	    	<if test="item.code != null">code=#{item.code,jdbcType=VARCHAR},</if>
+	    	<if test="item.name != null">name=#{item.name,jdbcType=VARCHAR},</if>
+	    	<if test="item.type != null">type=#{item.type,jdbcType=TINYINT},</if>
+	    	<if test="item.url != null">url=#{item.url,jdbcType=VARCHAR},</if>
+	    	<if test="item.sort != null">sort=#{item.sort,jdbcType=TINYINT},</if>
+	    	<if test="item.pid != null">pid=#{item.pid,jdbcType=BIGINT}</if>
+	    </set>
+		where id=#{item.id,jdbcType=BIGINT}   
+    </foreach>
+  </update>
+  
+
 </mapper>

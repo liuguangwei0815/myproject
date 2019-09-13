@@ -7,5 +7,5 @@ import com.quicky.demo.entity.SysRolePermission;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface SysRolePermissionMapper extends Mapper<SysRolePermission> {
-	List<SysRolePermission> getPermissionList(Long sysuserid);
+	List<SysRolePermission> getList(SysRolePermission obj);
 }

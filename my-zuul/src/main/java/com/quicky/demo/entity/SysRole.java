@@ -3,6 +3,8 @@ package com.quicky.demo.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Transient;
+
 import lombok.ToString;
 
 /**
@@ -14,7 +16,6 @@ import lombok.ToString;
 /**
  * @param permisionlist
  */
-@ToString
 public class SysRole implements Serializable {
 
 	/**
@@ -24,6 +25,7 @@ public class SysRole implements Serializable {
 	private Long id;
 	private String rolecode;
 	private String rolename;
+	@Transient
 	private List<SysPermission> permisionlist;
 
 	public Long getId() {

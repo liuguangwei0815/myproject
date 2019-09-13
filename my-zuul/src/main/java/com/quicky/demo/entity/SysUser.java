@@ -3,6 +3,8 @@ package com.quicky.demo.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Transient;
+
 import lombok.ToString;
 
 /**
@@ -11,7 +13,6 @@ import lombok.ToString;
  * @author Administrator
  *
  */
-@ToString
 public class SysUser implements Serializable {
 
 	/**
@@ -23,6 +24,7 @@ public class SysUser implements Serializable {
 	private String username;
 	private String password;
 	private String salt;
+	@Transient
 	private List<SysRole> rolelist;
 
 	public Long getId() {

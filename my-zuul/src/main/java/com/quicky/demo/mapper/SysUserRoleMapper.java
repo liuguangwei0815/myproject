@@ -8,6 +8,6 @@ import tk.mybatis.mapper.common.Mapper;
 
 public interface SysUserRoleMapper extends Mapper<SysUserRole>{
 	
-	List<SysUserRole> getRoleList(Long sysuserid);
+	List<SysUserRole> getList(SysUserRole obj);
 
 }
