@@ -14,6 +14,8 @@ eureka:
 spring:
   application:
     name: admin-site
+  profiles:
+    active: dev
   datasource:
     base:
       type: com.alibaba.druid.pool.DruidDataSource
