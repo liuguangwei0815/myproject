@@ -3,6 +3,8 @@ package com.quicky.demo.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +20,10 @@ import com.quicky.demo.mapper.SysUserMapper;
 import com.quicky.demo.mapper.SysUserRoleMapper;
 import com.quicky.demo.service.SysUserService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Service
-@Slf4j
 public class SysUserServiceImpl implements SysUserService {
-
+	Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private SysPermissionMapper sysPermissionMapper;
 	@Autowired
