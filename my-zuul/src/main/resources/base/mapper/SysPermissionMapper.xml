@@ -50,9 +50,6 @@
   <select id="getList_Count" parameterType="com.quicky.demo.entity.SysPermission" resultType="java.lang.Integer">
     select count(ID) from sys_permission <include refid="getList_where" />
   </select>  
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete FROM sys_permission where id=#{id,jdbcType=BIGINT}
-  </delete>
   
   
   <!-- 批量插入 -->
