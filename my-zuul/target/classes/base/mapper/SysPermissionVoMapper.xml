@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.quicky.demo.entity.SysPermissionVoMapper">
+<mapper namespace="com.quicky.demo.mapper.SysPermissionVoMapper">
 
 	<select id="getPerlist" parameterType="com.quicky.demo.entity.SysPermissionVo" resultType="com.quicky.demo.entity.SysPermissionVo">
 
