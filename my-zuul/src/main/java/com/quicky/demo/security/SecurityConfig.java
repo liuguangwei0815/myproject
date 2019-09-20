@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/", "/index.html").permitAll()
                 .anyRequest().authenticated()   // 其他地址的访问均需验证权限
-                 .and()
+                .and()
                 .formLogin()
                 .loginPage("/login.html")   //  登录页
                 .failureUrl("/login-error.html").permitAll()
