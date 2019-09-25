@@ -1,31 +1,0 @@
-server:
-  port: 7006
-spring:  application:    name: my-config
-  cloud:    config:      server:        git:          uri: https://github.com/liuwei0815/myconfig.git
-          username: 736873792@qq.com
-          password: Aini200878  
-          search-paths: /**  # 指定搜索根路径下的所有目录，若有多个路径使用逗号隔开     
-    bus:
-      enabled: true
-      refresh:
-        enabled: true  
-  kafka:
-    bootstrap-servers: kafka.com:7100,kafka.com:7101,kafka.com:7102
-    #consumer:
-     #group-id: SpringCloud-bus
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'      
-            
-eureka:
-  instance:
-    prefer-ip-address: true #主要是为了解决注册到服务器上显示为主机名的问题，一般建议显示为ip,方便区分。
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    lease-renewal-interval-in-seconds: 5      # 心跳时间，即服务续约间隔时间（缺省为30s）
-    lease-expiration-duration-in-seconds: 15  # 发呆时间，即服务续约到期时间（缺省为90s）
-    
-  client:
-    serviceUrl:
-      defaultZone: http://eureka1:7000/eureka,http://eureka2:7004/eureka,http://eureka3:7005/eureka  #设置与 Eureka Server 交互的地址查询服务和注册服务都需要依赖这个地址(服务暴露的地址)
