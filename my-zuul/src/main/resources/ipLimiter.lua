@@ -1,4 +1,4 @@
---获取key值
+--获取key值 
 local key1 = KEYS[1]
 local val = redis.call('incr', key1)
 local ttl = redis.call('ttl', key1)
