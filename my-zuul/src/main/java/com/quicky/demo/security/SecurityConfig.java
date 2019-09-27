@@ -36,6 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutSuccessUrl("/index.html");
+        //关闭跨域
+        http.csrf().disable();
     }
 
     @Override
