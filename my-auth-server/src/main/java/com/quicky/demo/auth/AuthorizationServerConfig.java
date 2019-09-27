@@ -106,7 +106,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	
 	
 	public static void main(String[] args) {
-		System.out.println(new BCryptPasswordEncoder().encode("my-client-1:12345678"));
+		System.out.println( new BCryptPasswordEncoder().encode("a12345678"));
 	}
 	
 }
