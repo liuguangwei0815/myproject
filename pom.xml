@@ -207,6 +207,7 @@
 		<module>my-job-core</module>
 		<module>my-job-executor</module>
 		<module>my-auth-server</module>
+		<module>sso-auth-server</module>
 	</modules>
 
 </project>
