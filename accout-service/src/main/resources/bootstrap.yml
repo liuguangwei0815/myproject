@@ -1,5 +1,7 @@
 server:
   port: 7003
+  servlet:    session:      cookie:        name: UISESSIONCOUPON
+      timeout: 5
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 30 #心跳刷新30s
@@ -15,7 +17,17 @@ eureka:
   #endpoints:
     #web:
       #exposure:
-        #include: '*'      
+        #include: '*'  
+security:
+  oauth2:
+    client:
+      client-id: CouponSystem
+      client-secret: a12345678
+      access-token-uri: http://localhost:7015/oauth/token
+      user-authorization-uri: http://localhost:7015/oauth/authorize
+    resource:
+      user-info-uri: http://localhost:7015/user/me
+          
 spring:
   application:
     name: accout-service
@@ -40,3 +52,10 @@ spring:
       url: jdbc:mysql://mysql.com:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
       username: root
       password: root
+     #添加Thymeleaf配置
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8

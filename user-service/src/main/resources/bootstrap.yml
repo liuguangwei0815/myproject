@@ -1,5 +1,6 @@
 server:
   port: 7001
+  servlet:    session:      cookie:        name: UISESSIONMEMBER      timeout: 5
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 30 #心跳刷新30s
@@ -13,6 +14,12 @@ eureka:
       #enabled: true #配置开启健康检查，并按需配置续约更新时间和到期时间  
     serviceUrl:
       defaultZone: http://eureka1:7000/eureka,http://eureka2:7004/eureka,http://eureka3:7005/eureka  #设置与 Eureka Server 交互的地址查询服务和注册服务都需要依赖这个地址(服务暴露的地址)
+security:  oauth2:    client:      client-id: MemberSystem
+      client-secret: a12345678
+      access-token-uri: http://localhost:7015/oauth/token
+      user-authorization-uri: http://localhost:7015/oauth/authorize
+    resource:      user-info-uri: http://localhost:7015/user/me
+      
 spring:
   application:
     name: user-service
@@ -45,3 +52,10 @@ spring:
       url: jdbc:mysql://mysql.com:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
       username: root
       password: root
+        #添加Thymeleaf配置
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
