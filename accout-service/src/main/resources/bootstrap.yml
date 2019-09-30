@@ -26,7 +26,8 @@ security:
       access-token-uri: http://localhost:7015/oauth/token
       user-authorization-uri: http://localhost:7015/oauth/authorize
     resource:
-      user-info-uri: http://localhost:7015/user/me
+      #user-info-uri: http://localhost:7015/user/me
+      jwt:        key-uri: http://localhost:7015/oauth/token_key
           
 spring:
   application:

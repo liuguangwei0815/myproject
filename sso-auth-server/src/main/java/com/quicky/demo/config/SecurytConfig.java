@@ -1,7 +1,9 @@
 package com.quicky.demo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,6 +32,16 @@ public class SecurytConfig extends WebSecurityConfigurerAdapter{
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/assets/**","/css/**", "/js/**", "/plugins/**", "/favicon.ico");
 	}
+	
+//	  /**
+//     * Spring Boot 2 配置，这里要bean 注入
+//     */
+//    @Bean
+//    @Override
+//    public AuthenticationManager authenticationManagerBean() throws Exception {
+//        AuthenticationManager manager = super.authenticationManagerBean();
+//        return manager;
+//    }
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -38,9 +50,7 @@ public class SecurytConfig extends WebSecurityConfigurerAdapter{
            .anyRequest().authenticated()   // 其他地址的访问均需验证权限
            .and()
            .formLogin()
-           .loginPage("/login")
-           .and()
-           .logout().logoutUrl("/logout").logoutSuccessUrl("/");
+           .loginPage("/login").and().csrf().disable().cors();
 	}
 
 	
