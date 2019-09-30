@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8" />
+<title>springboot-thymeleaf demo</title>
+</head>
+
+<body>
+	<p th:text="'hello, ' + ${name} + '!'" />
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+		<!-- 用户类型为ROLE_ADMIN 显示 -->
+		<p class="bg-info" th:text="${msg.etraInfo}"></p>
+	</div>
+	<div  sec:authorize="hasRole('ROLE_USER')">
+		<!-- 用户类型为 ROLE_USER 显示 -->
+		<p class="bg-info">无更多信息显示1</p>
+	</div>
+	
+	   <form th:action="@{/logout}" method="post">
+            <input type="submit" class="btn btn-primary" value="注销"/>
+        </form>
+
+</body>
+</html>

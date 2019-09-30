@@ -1,0 +1,8 @@
+测试地址
+http://localhost:7014/oauth/authorize?response_type=code&client_id=my-client-1&redirect_uri=http://www.baidu.com&scope=all
+http://localhost:7014/oauth/authorize?response_type=code&client_id=my-client-1&redirect_uri=http://www.baidu.com&scope=read
+#获取了code
+然后通过postMan header （contentype 谁知 Application/x-www-from-urlenclide autorization Bese+空格+密码）和  body 选择x-www-from-urlencode 
+http://localhost:7014/oauth/token
+
+http://localhost:7014/haha/sayHi?access_token=08e1d8de-079f-4634-95d3-a10617a6334d

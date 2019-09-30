@@ -3,6 +3,7 @@ package com.quicky.demo.security;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -25,10 +26,17 @@ public class MyUserDetails implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		List<GrantedAuthority> list = new ArrayList<>();
-		list.add(new SimpleGrantedAuthority("userIndex"));
-		String password = passwordEncoder.encode("123456");
-		log.info("password:{}",password);
-		return new User("liuwei", password, list);
+		String password = "";
+		if(StringUtils.equals(username, "admin")) {
+			list.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+			password = passwordEncoder.encode("123456");
+		}
+		if(StringUtils.equals(username, "liuwei")) {
+			list.add(new SimpleGrantedAuthority("ROLE_USER"));
+			password = passwordEncoder.encode("123456");
+		}
+		log.info("password:{}",password);	
+		return new User(username, password, list);
 	}
 
 }

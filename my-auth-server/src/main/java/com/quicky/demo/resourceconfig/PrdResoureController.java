@@ -20,13 +20,13 @@ public class PrdResoureController {
 	}
 	
 	@GetMapping("/haha/sayHi")
-	@PreAuthorize("hasAnyRole('userIndex')")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	public String hhh1(String name) {
 		return "sayHi"+name;
 	}
 	
 	
-	@GetMapping("/haha1/sayHi")
+	@GetMapping("/haha/sayHi2")
 	@PreAuthorize("hasAnyRole('userIndex')")
 	public String hhh12(String name) {
 		return "haha1..sayHi"+name;
@@ -41,6 +41,17 @@ public class PrdResoureController {
 	@GetMapping("/haha/sayHi3")
 	@PreAuthorize("hasAnyAuthority('userIndex')")
 	public String hhh3(String name) {
+		return "sayHi3"+name;
+	}
+	/**
+	 * hasAnyRole 角色
+	 *  hasAnyAuthority 这是控制权限
+	 * @param name
+	 * @return
+	 */
+	@GetMapping("/haha/sayHi4")
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+	public String hhh4(String name) {
 		return "sayHi3"+name;
 	}
 }
