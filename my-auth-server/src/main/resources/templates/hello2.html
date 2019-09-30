@@ -7,7 +7,15 @@
 </head>
 
 <body>
-	<p th:text="'hello, ' + ${name} + '!'" />
+<p th:text="'hello, ' + ${name} + '!'" />
+	<div sec:authentication="name"></div>
+	Roles: <span sec:authentication="principal.authorities"></span>
+	<div sec:authorize-url="/admin/foo">
+	    can see /admin
+	 </div>
+	
+	<div sec:authorize="isAuthenticated()">This content is only shown to authenticated users.</div>
+	
 	<div sec:authorize="hasRole('ROLE_ADMIN')">
 		<!-- 用户类型为ROLE_ADMIN 显示 -->
 		<p class="bg-info" th:text="${msg.etraInfo}"></p>

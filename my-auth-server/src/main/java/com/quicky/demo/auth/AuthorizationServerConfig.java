@@ -54,9 +54,21 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		security.passwordEncoder(passwordEncoder());//设置clent_id的加密方式
 	}
 	
+	//密码加密 方式
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+		return new PasswordEncoder() {
+			
+			@Override
+			public boolean matches(CharSequence rawPassword, String encodedPassword) {
+				 return encodedPassword.equals(MD5Util.encode((String)rawPassword));
+			}
+			
+			@Override
+			public String encode(CharSequence rawPassword) {
+				return MD5Util.encode((String)rawPassword);
+			}
+		};
 	}
 	
 	
