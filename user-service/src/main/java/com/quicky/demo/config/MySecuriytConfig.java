@@ -18,9 +18,10 @@ public class MySecuriytConfig extends WebSecurityConfigurerAdapter {
 //         .anyRequest()
 //         .authenticated().and()
 //         .csrf().disable();
+		http.authorizeRequests().antMatchers("/").permitAll();
 		http.authorizeRequests().anyRequest().authenticated();
 		http.logout().logoutSuccessUrl("http://localhost:7015/logout");
-		//http.csrf().disable();
+		http.csrf().disable();//因为是多个域名下跨域， 所以需要先要禁止掉，
 	}
 
 }

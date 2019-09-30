@@ -16,8 +16,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true,proxyTargetClass = true)
 public class SecurytConfig extends WebSecurityConfigurerAdapter{
-
-	
 	@Autowired
 	private MyUserDetails myUserDetails;
 	@Autowired
@@ -50,7 +48,9 @@ public class SecurytConfig extends WebSecurityConfigurerAdapter{
            .anyRequest().authenticated()   // 其他地址的访问均需验证权限
            .and()
            .formLogin()
-           .loginPage("/login").and().csrf().disable().cors();
+           .loginPage("/login")
+           //.and().logout().addLogoutHandler(myLogOutHandler)
+           .and().csrf().disable().cors();
 	}
 
 	
