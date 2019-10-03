@@ -1,6 +1,8 @@
 server:
   port: 7001
-  servlet:    session:      cookie:        name: UISESSIONMEMBER      timeout: 5
+  servlet:    session:      cookie:        name: UISESSIONMEMBER
+        http-only: true
+        #secure: true      timeout: 5
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 30 #心跳刷新30s
@@ -18,7 +20,7 @@ security:  oauth2:    client:      client-id: MemberSystem
       client-secret: a12345678
       access-token-uri: http://localhost:7015/oauth/token
       user-authorization-uri: http://localhost:7015/oauth/authorize
-    resource:      #user-info-uri: http://localhost:7015/user/me\
+    resource:      #user-info-uri: http://localhost:7015/user/me
       jwt:        key-uri: http://localhost:7015/oauth/token_key
       
 spring:

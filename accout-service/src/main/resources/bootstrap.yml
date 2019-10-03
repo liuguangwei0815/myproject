@@ -1,6 +1,8 @@
 server:
   port: 7003
   servlet:    session:      cookie:        name: UISESSIONCOUPON
+        http-only: true
+        #secure: true #貌似无法实现sso
       timeout: 5
 eureka:
   instance:
