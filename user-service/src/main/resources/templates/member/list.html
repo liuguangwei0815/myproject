@@ -5,6 +5,7 @@
 <title>会员系统</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </head>
 
 <body>
@@ -13,6 +14,17 @@
 		<h1>会员查询</h1>
 		<!-- <h2>欢迎, <span th:text="${#authentication.name}">Name</span></h2> -->
 		<h2><a th:href="@{/logout}">退出,</a></h2>
+		<!-- 测试post请求 -->
+		<h2><a th:onclick="ddd()">测试ajax,</a></h2>
+		<script type="text/javascript">
+			function ddd(){
+				   $.ajax({url:"http://localhost:7001/getUser",success:function(result){
+					   alert(result)
+				    }});				
+			}
+		
+		</script>
+		
 	</div>
 
 	<div>

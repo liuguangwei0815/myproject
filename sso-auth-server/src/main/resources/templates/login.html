@@ -20,10 +20,13 @@
             <h2 class="inner-tittle page">XXX管理系统</h2>
             <div class="login">
                 <h3 class="inner-tittle t-inner">Login</h3>
-                <form th:action="@{/login}" method="post">
-                    <input type="text" name="username" value="" placeholder="E-mail address" >
-                    <input type="password" name="password" value="" placeholder="Password">
-                    <div class="submit"><input type="submit" value="Login" ></div>
+               <!--  <form th:action="@{/login}" method="post"> -->
+               <form >
+                    <input type="text" name="username" id="username" value="" placeholder="E-mail address" >
+                    <input type="password" name="password" id="password" value="" placeholder="Password">
+                    <!-- <div class="submit"><input type="submit" value="Login" ></div> -->
+                      <div class="submit"><input type="button" id="submitbu" th:onclick="login()">Login</div>
+                    
                     <div class="clearfix"></div>
 
                     <div class="new">
@@ -43,5 +46,37 @@
     <script type="text/javascript" src="/assets/js/scripts.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    
+   	function login(){
+   	  var username = $("#username").val();
+   	  var password = $("#password").val();
+   	  $.ajax({
+
+          url:"/login",
+          data:{
+              "username": username,
+              "password": password
+          },
+          dataType:"json",
+          type:'post',
+          async:false,
+          success:function (data) {
+              if (data.code == 401){
+                  alert("用户名字或密码错误");
+              }
+              if(data.code == 200){
+                  window.location.href = "/";
+              }
+
+          }
+      });
+   	}
+    
+    
+    </script>
+    
+    
+    
 </body>
 </html>

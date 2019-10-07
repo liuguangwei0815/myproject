@@ -16,6 +16,7 @@ import org.springframework.security.oauth2.provider.NoSuchClientException;
 import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 import org.springframework.stereotype.Component;
 
+import com.alibaba.fastjson.JSON;
 import com.quicky.demo.entity.OauthClientDetails;
 import com.quicky.demo.mapper.OauthClientDetailsMapper;
 
@@ -37,6 +38,7 @@ public class MyClientDetials implements ClientDetailsService{
 		if(detal==null) {
 			throw new NoSuchClientException(String.format("NO Client Error", clientId));
 		}
+		log.info("detal:{}",JSON.toJSONString(detal));
 		BaseClientDetails client  =  new BaseClientDetails();
 		client.setClientId(clientId);
 		client.setClientSecret(detal.getClientSecret());
