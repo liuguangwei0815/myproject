@@ -53,8 +53,8 @@ public class SecurytConfig extends WebSecurityConfigurerAdapter{
            .anyRequest().authenticated()   // 其他地址的访问均需验证权限
            .and()
            .formLogin()
-           .loginPage("/login_page")//登录页
-           .loginProcessingUrl("/login")//登录方法
+           .loginPage("/login_page")//登录页  ，必须得是这个，卧槽 啥情况 不知道
+           .loginProcessingUrl("/login")//登录方法 必须得是这个，卧槽 啥情况 不知道
            .usernameParameter("username")
            .passwordParameter("password")
           //.successHandler(myAuthenFailHandler)

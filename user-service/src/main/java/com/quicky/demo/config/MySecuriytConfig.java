@@ -21,7 +21,6 @@ public class MySecuriytConfig extends WebSecurityConfigurerAdapter {
 //         .csrf().disable();
 		http.authorizeRequests().antMatchers("/").permitAll();
 		http.authorizeRequests().anyRequest().authenticated();
-		http.formLogin().loginPage("/login_page");
 		http.logout().logoutSuccessUrl("http://localhost:7015/logout");
 		http.logout().deleteCookies("JSESSIONID");
 		http.csrf().disable();//因为是多个域名下跨域， 所以需要先要禁止掉，

@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.savedrequest.RequestCache;
+import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
@@ -27,7 +30,10 @@ public class MyAuthenFailHandler extends SimpleUrlAuthenticationFailureHandler {
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException exception) throws IOException, ServletException {
-		log.info("认证失败");
+		RequestCache cache = new HttpSessionRequestCache();
+		SavedRequest savedRequest = cache.getRequest(request, response);
+		String url =  (savedRequest==null?null:savedRequest.getRedirectUrl());
+		log.info("认证失败 ok ， authUrl = ",url);
 		JsonData jsonData = new JsonData(401, "error", null);
 		PrintWriter witer = response.getWriter();
 		witer.write(JSON.toJSONString(jsonData));

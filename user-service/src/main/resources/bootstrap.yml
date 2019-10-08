@@ -22,6 +22,7 @@ security:  oauth2:    client:      client-id: MemberSystem
       user-authorization-uri: http://localhost:7015/oauth/authorize
     resource:      #user-info-uri: http://localhost:7015/user/me
       jwt:        key-uri: http://localhost:7015/oauth/token_key
+    sso:      login-path: /login_page
       
 spring:
   application:

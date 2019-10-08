@@ -56,6 +56,7 @@ public class MyClientDetials implements ClientDetailsService{
 		client.setAutoApproveScopes(approve);
 		client.setAccessTokenValiditySeconds(5/* (int)TimeUnit.DAYS.toSeconds(1)*/); //1天
 		client.setRefreshTokenValiditySeconds(5/*(int)TimeUnit.DAYS.toSeconds(1) */); //1天
+		log.info("client:{}",JSON.toJSONString(client));
 		return client;
 	}
 

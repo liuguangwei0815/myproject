@@ -27,6 +27,8 @@ security:
       client-secret: a12345678
       access-token-uri: http://localhost:7015/oauth/token
       user-authorization-uri: http://localhost:7015/oauth/authorize
+    sso:
+      login-path: /login_page #服务端如果配置登录接口是这个 你必须也要配置这个否则会报invelide_redict
     resource:
       #user-info-uri: http://localhost:7015/user/me
       jwt:        key-uri: http://localhost:7015/oauth/token_key
