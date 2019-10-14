@@ -208,6 +208,7 @@
 		<module>my-job-executor</module>
 		<module>my-auth-server</module>
 		<module>sso-auth-server</module>
+		<module>my-wx-pay</module>
 	</modules>
 
 </project>

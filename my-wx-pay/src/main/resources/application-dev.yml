@@ -1,0 +1,15 @@
+server:
+  port: 7016
+spring:
+  application:
+    name: my-wx-pay
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://wxmysql.com:3306/sell?useUnicode=true&characterEncoding=utf-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+   
+logging:
+  config: classpath:log/logback-spring.xml
+  
+
