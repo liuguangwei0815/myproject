@@ -1,5 +1,6 @@
 package com.quicky.demo.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,35 +11,35 @@ import javax.persistence.Id;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Proxy;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @DynamicUpdate
 @Proxy(lazy = false)
-@ToString
-public class ProductCategory {
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProductCategory implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2356624754591391551L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//@GeneratedValue
-	private Long categoryId; // 
+	private Integer categoryId; // 
 	
 	private String categoryName; // 类目名字
 	
-	private Long categoryType; // 类目编号
+	private Integer categoryType; // 类目编号
 	
 	private Date createTime; // 创建时间
 	
 	private Date updateTime; // 修改时间
 	
-    public ProductCategory() {
-    }
-
-    public ProductCategory(String categoryName, Long categoryType) {
-        this.categoryName = categoryName;
-        this.categoryType = categoryType;
-    }
 
 }
