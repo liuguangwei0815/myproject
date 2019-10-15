@@ -32,7 +32,7 @@ public class ProductCategoryRepositoryTest {
 	}
 	
 	@Test
-	@Transactional //不入库，
+	//@Transactional //不入库，
 	public void test1() {
 		ProductCategory pc = new ProductCategory();
 		pc.setCategoryName("男生最爱");

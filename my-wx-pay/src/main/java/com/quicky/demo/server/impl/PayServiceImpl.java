@@ -8,7 +8,7 @@ import com.lly835.bestpay.model.PayRequest;
 import com.lly835.bestpay.model.PayResponse;
 import com.lly835.bestpay.model.RefundRequest;
 import com.lly835.bestpay.model.RefundResponse;
-import com.lly835.bestpay.service.impl.BestPayServiceImpl;
+import com.lly835.bestpay.service.BestPayService;
 import com.lly835.bestpay.utils.JsonUtil;
 import com.quicky.demo.dto.OrderDTO;
 import com.quicky.demo.enums.ResultEnum;
@@ -30,7 +30,7 @@ public class PayServiceImpl implements PayService {
     private static final String ORDER_NAME = "微信点餐订单";
 
     @Autowired
-    private BestPayServiceImpl bestPayService;
+    private BestPayService bestPayService;
 
     @Autowired
     private OrderService orderService;

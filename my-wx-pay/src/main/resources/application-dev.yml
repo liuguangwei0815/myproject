@@ -1,6 +1,9 @@
 server:
   port: 7016
-spring:
+  servlet:
+    context-path: /sell
+#服务的名称
+spring:   
   application:
     name: my-wx-pay
   datasource:
